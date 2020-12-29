@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <cpn></cpn>
+  <cpn ref="aaa"></cpn>
+  <button @click="btnClick">访问</button>
+</div>
+<template id="cpn">
+  <div>这是子组件</div>
+</template>
+<script src="../../day02/js/vue.js"></script>
+<script>
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello'
+    },
+    computed: {
+
+    },
+    methods: {
+      btnClick(){
+        //1. $children，所有子组件，数组,一般不用下标访问，避免添加组件时引起的错位
+        console.log(this.$children[0].name)
+        //2. $refs,添加ref属性，（$refs.属性值）访问特定子组件
+        console.log(this.$refs.aaa)
+      }
+    },
+    components:{
+      cpn:{
+        template: '#cpn',
+        data(){
+          return{
+            name:'子组件名字',
+            size:150
+          }
+        },
+        methods: {
+          showMsg(){
+            console.log("show message")
+          }
+        }
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

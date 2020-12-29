@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn1></cpn1>
+</div>
+
+<script src="../../day02/js/vue.js"></script>
+<script>
+
+  const  cpnc2=Vue.extend({
+    template:`
+      <div>
+        <h2>标题二</h2>
+        <p>内容2，哈哈哈哈哈哈</p>
+        <p>------红红火火恍恍惚</p>
+      </div>`
+  })
+
+  const  cpnc1=Vue.extend({
+    template:`
+      <div>
+        <h1>标题一</h1>
+        <p>内容1，啦啦啦啦啦</p>
+        <p>------啦啦啦啦啦</p>
+        <cpn2></cpn2>
+        <p>内容1，******啦啦啦啦啦</p>
+        <p>------啦啦啦啦啦------</p>
+      </div>`,
+    //组件构造器里注册组件,先构造子组件cpnc2,再父组件cpnc1
+    //编译过程中已经替换了子组件代码，所以app中不能直接使用子组件
+    components:{
+      cpn2:cpnc2
+    }
+  })
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hi'
+    },
+    computed: {
+
+    },
+    methods: {
+
+    },
+    components:{
+      cpn1:cpnc1
+    }
+  })
+
+</script>
+</body>
+</html>

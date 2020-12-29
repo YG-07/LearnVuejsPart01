@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!-- v-if  true/false控制元素的显示 -->
+  <!--<div v-if="false">-->
+  <div v-if="isShow">
+    <h1>hi</h1>
+    <h2>{{message}}</h2>
+  </div>
+  <h2>false</h2>
+
+  <div v-if="isShow">
+    <h1>hi</h1>
+    <h2>{{message}}</h2>
+  </div>
+  <h2 v-else>false的时候显示</h2>
+
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hi',
+      isShow:false
+    },
+    computed: {
+
+    },
+    methods: {
+
+    }
+  })
+
+</script>
+</body>
+</html>

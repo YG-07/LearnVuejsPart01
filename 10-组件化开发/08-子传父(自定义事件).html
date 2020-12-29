@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--父组件监听，并使用父的方法，自定义事件,没有参数自动传参数里的cate事件-->
+  <cpn @childclick="cpnClick"></cpn>
+</div>
+<template id="cpn">
+  <div>
+    <button v-for="cate in categories"
+            @click="btnClick(cate)">
+      {{cate.name}}
+    </button>
+  </div>
+</template>
+<script src="../../day02/js/vue.js"></script>
+<script>
+  const cpn={
+    template:'#cpn',
+    data(){
+      return{
+        //类别，种类
+        categories:[
+          {id:'hot',name:'热门推荐'},
+          {id:'phone',name:'数码推荐'},
+          {id:'daily',name:'日常用品'},
+          {id:'furniture',name:'高档家具'}
+        ]
+      }
+    },
+    methods: {
+      //组件内先确定事件,通过$emit向父组件请求
+      btnClick(cate){
+        this.$emit('childclick',cate)
+      }
+    }
+  }
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message:'你好啊'
+    },
+    computed: {
+
+    },
+    methods: {
+      cpnClick(item){
+        console.log('cpn is click',item)
+      }
+    },
+    components:{
+      cpn
+    }
+  })
+</script>
+</body>
+</html>

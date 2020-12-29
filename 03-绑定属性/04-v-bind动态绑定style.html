@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--动态绑定style  {key样式属性:value属性值}-->
+  <h2 :style="{color: 'green'}">{{message}}</h2>
+  <h2 :style="getStyle()">{{message}}</h2>
+  <h2 :style="[wd,ht,{fontSize:fsize+'px'},{backgroundColor:bgcolor}]">{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hi',
+      fsize:50,
+      bgcolor:'gold',
+      wd: {width: '40px'},
+      ht: {height: '100px'}
+    },
+    methods: {
+      getStyle:function () {
+        return {fontSize: this.fsize+'px', backgroundColor: this.bgcolor}
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

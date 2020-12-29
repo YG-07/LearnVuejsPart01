@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      padding: 20px;
+      margin: 10px;
+      border: 1px black solid;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <cpn>
+    <p>插槽p标签</p>
+  </cpn>
+  <cpn>
+    <button>按钮</button>
+  </cpn>
+  <cpn>
+    <input type="text" placeholder="插槽">
+  </cpn>
+  <!--slot会替换cpn里所有元素-->
+  <cpn>
+    <div>多个标签</div>
+    <ul>
+      <li>red</li>
+      <li>green</li>
+    </ul>
+    <p>哈哈哈</p>
+  </cpn>
+</div>
+<template id="cpn">
+  <div>
+    <h2>我是组件</h2>
+    <p>我是组件，哈哈哈</p>
+    <slot><i><h2>插槽默认值</h2></i></slot>
+  </div>
+</template>
+
+<script src="../../day02/js/vue.js"></script>
+<script>
+  /*组件的插槽：
+    口组件的插槽也是为了让我们封装的组件更加具有扩展性。
+    口让使用者可以决定组件内部的一些内容到底展示什么。
+    栗子：移动网站中的导航栏。
+    口移动开发中，几乎每个页面都有导航栏。
+    口导航栏我们必然会封装成一个插件，比如nav-bar组件。
+    口一旦有了这个组件，我们就可以在多个页面中复用了。
+   */
+  const app = new Vue({
+    el: '#app',
+    data: {
+
+    },
+    methods: {
+
+    },
+    components:{
+      cpn:{
+        template:'#cpn'
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!-- Mustache:胡子，胡须.双大括号类似胡子 -->
+  <h2>{{message}}</h2>
+  <h2>{{message}}, John</h2>
+  <h2>{{firstName+' '+lastName}}</h2>
+  <h2>{{firstName}} {{lastName}}</h2>
+  <h2>年龄：{{age + 1}}</h2>
+  <!--取消大括号解析-->
+  <h2 v-pre>{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hi',
+      firstName: 'John',
+      lastName: 'Peter',
+      age: 21
+    },
+    methods: {
+
+    }
+  })
+
+</script>
+</body>
+</html>

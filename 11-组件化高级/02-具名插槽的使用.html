@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      padding: 20px;
+      margin: 10px;
+      text-align: center;
+      border: 1px black solid;
+    }
+    span{
+      border: 1px black solid;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <cpn>
+    <button slot="left">返回键</button>
+    <span slot="center">标题</span>
+    <button slot="right">菜单键</button>
+  </cpn>
+</div>
+<!--封装一个导航条，三个不同的插槽-->
+<template id="cpn">
+  <div>
+    <slot name="left"><span>左边</span></slot>
+    <slot name="center"><span>中间</span></slot>
+    <slot name="right"><span>右边</span></slot>
+  </div>
+</template>
+
+<script src="../../day02/js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+
+    },
+    methods: {
+
+    },
+    components:{
+      cpn:{
+        template:'#cpn'
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

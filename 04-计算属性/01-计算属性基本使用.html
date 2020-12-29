@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <h2>{{getfullName()}}</h2>
+  <!--直接使用计算属性的名字-->
+  <h1>{{fullName}}</h1>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hi',
+      firstName: 'Tom',
+      lastName: 'Jordan'
+    },
+    //默认的 计算属性computed
+    computed:{
+      fullName:function () {
+        return this.firstName+' '+this.lastName;
+      }
+    },
+    methods: {
+      getfullName() {
+        return this.firstName+' '+this.lastName;
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

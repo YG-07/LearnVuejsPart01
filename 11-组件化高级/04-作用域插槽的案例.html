@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <!--在父组件里不能直接使用子组件数据-->
+  <!--作用域插槽绑定自定义属性v-bind:，
+  父组件使用template的slot-scope属性(自定义值)接收子组件的数据，
+  使用（值.子模板的数据名）接收-->
+  <cpn>
+    <template slot-scope="slot">
+      <span v-for="item in slot.langs">{{item}} - </span>
+    </template>
+  </cpn>
+  <cpn>
+    <template slot-scope="slot">
+      <p>使用(数组).join(' ')将数组以一个字符串连接，没有首尾字符串</p>
+      <span>{{slot.langs.join(' - ')}}</span>
+    </template>
+  </cpn>
+</div>
+<template id="cpn">
+  <div>
+    <slot :langs="pLangs">
+      <ul>
+        <li v-for="item in pLangs">{{item}}</li>
+      </ul>
+    </slot>
+  </div>
+</template>
+<script src="../../day02/js/vue.js"></script>
+<script>
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+
+    },
+    methods: {
+
+    },
+    components:{
+      cpn:{
+        template:'#cpn',
+        data(){
+          return{
+            pLangs:['C/C++','C#','Python','Java','PHP','JavaScript']
+          }
+        }
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--1.lazy修饰符，失去焦点或回车时 才实时绑定值-->
+  <input type="text" v-model.lazy="message">
+  <h2>{{message}}</h2>
+
+  <!--v-model绑定时自动的string类型-->
+  <!--2.number修饰符,转换Number类型-->
+  <input type="number" v-model.number="age">
+  <h2>{{typeof age}} {{age}}</h2>
+
+  <!--浏览器加载时自动去除超过2个的多余空格，但变量原封不动-->
+  <!--3.trim修饰符，它去除变量首尾多余空格-->
+  <input type="text" v-model.trim="name">
+  <button @click="getName">确定</button>
+  <h2>{{name}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hi',
+      name:'',
+      age:0
+    },
+    computed: {
+
+    },
+    methods: {
+      getName(){
+        console.log('('+this.name+')')
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

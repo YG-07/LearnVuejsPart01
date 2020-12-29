@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    li{
+      color: black;
+      cursor: pointer;
+      margin: 10px;
+      width: 60px;
+      border: 1px gray solid;
+    }
+    .toRed{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <ul>
+    <!--复杂做法-->
+    <!--<li v-for="(x,index) in list" v-bind:class="{'toRed': lisRed[index]}" v-on:mouseover="chgClass(index)">{{index}}.{{x}}</li>-->
+    <!--判断当前索引值与li的index值，恒等就是true-->
+    <li v-for="(x,index) in list" v-bind:class="{toRed: currentIndex === index}" v-on:mouseover="chgClass(index)">{{index}}.{{x}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hi',
+      list: ['aaa','bbb','ccc','ddd','eee'],
+      //记录当前的索引值
+      currentIndex: 0,
+      //多余的做法！
+      // lisRed: [false,false,false,false,false]
+    },
+    methods: {
+        //详见7-3 响应式的数组方法
+        //Vue.set将lisRed数组下标i的数据取反
+      //复杂做法
+      // chgClass(index) {
+      //   for(let i=0;i<this.lisRed.length;++i){
+      //     if(i===index)
+      //       Vue.set(this.lisRed,i,!this.lisRed[i])
+      //     else
+      //       Vue.set(this.lisRed,i,false)
+      //   }
+      // }
+        // this.lisRed[i]=!this.lisRed[i]   //错误操作
+        // console.log(this.lisRed)
+
+      //最优做法
+      chgClass(i) {
+        this.currentIndex=i
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <div>
+    <h2 v-for="s in scores">{{s}}
+      <!--计算属性-->
+      {{level(s)}}
+      <!--指令判断显示-->
+      <!--<span v-if="s>=90">优秀</span>-->
+      <!--<span v-else-if="s>=80">良好</span>-->
+      <!--<span v-else-if="s>=60">及格</span>-->
+      <!--<span v-else>不及格</span>-->
+    </h2>
+  </div>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '成绩',
+      scores: [58,71,89,62,91]
+    },
+    computed: {
+
+    },
+    methods: {
+      level(s){
+        let lv='';
+        if(s >= 90)lv='优秀'
+        else if(s >= 80)lv='良好'
+        else if(s >= 60)lv='及格'
+        else lv='不及格'
+        return lv
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

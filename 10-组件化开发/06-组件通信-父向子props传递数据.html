@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--数组，通过v-bind获取，父组件的数据，可以多个数组或变量-->
+  <!--没有v-bind就是字符串-->
+  <cpn :getmsg="message" :getcolors="colors"></cpn>
+</div>
+<template id="cpn">
+  <div>
+    <h2>{{getmsg}}</h2>
+    <p>{{getcolors}}</p>
+    <ul>
+      <li v-for="color in getcolors">{{color}}</li>
+    </ul>
+  </div>
+</template>
+<script src="../../day02/js/vue.js"></script>
+<script>
+  //父传子：props
+  const cpn = {
+    template: '#cpn',
+    //数组，多个变量用''括起来，不会类型检测
+    // props: ['getmsg', 'getcolors'],
+    props:{
+      //1.类型限制
+      // getmsg:String,
+      // getcolors:Array
+
+      //2.类型和默认值，必要条件:bool,缺少就报错
+      getmsg:{
+        type:String,
+        default:'hello 哇'
+      },
+      getcolors:{
+        //可以是默认类型，也可是自定义类
+        //默认类型有：String、Number、Boolean、Array、Object、Date、Function、Symbol等
+        type: Array,
+        //1.数组作为属性 vue2.6以上会报错
+        // default:['没有颜色'],
+        //2.解决办法 default作为函数，返回一个数组
+        default(){
+          return []
+        },
+        required:true
+      }
+    },
+    data() {
+      return {}
+    }
+  }
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊！',
+      colors: ['red', 'yellow', 'green', 'blue', 'black']
+    },
+    methods: {},
+    components: {
+      cpn
+    }
+  })
+
+</script>
+</body>
+</html>

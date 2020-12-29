@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script src="../js/vue.js"></script>
+<script>
+  const  nums=[10,31,102,205,40,421,55]
+  // 1.取出小于100的数组成新数组
+  // 2.将小于100的数*2组成新数组
+
+  //1.使用filter函数
+  let newNums=nums.filter(function (n) {
+    return n<100
+  })
+  console.log(newNums)
+  //2.使用map函数 映射
+  let twoNums=newNums.map(function (n) {
+    return n*2
+  })
+  console.log(twoNums)
+  //3.reduce函数对数组中所有内容进行汇总,求和
+  // preValue前一个返回值，（（pre，参数..），pre初始值）
+  let total=twoNums.reduce(function (preValue, n) {
+    //preValue初始值0
+    return preValue+n
+  },0)
+  console.log(total)
+
+  //需求：求数组中小于100的和
+  //链式
+  let sumLink=nums.filter(function (n) {
+    return n<100
+  }).map(function (n) {
+    return n*2
+  }).reduce(function (preValue,n) {
+    return preValue+n
+  },0)
+  console.log(sumLink)
+
+  //ES6 箭头函数
+  /*1.(param1, param2, …, paramN) => { statements }
+    2.当只有一个参数时，圆括号是可选的：(singleParam) => { statements }
+    3.没有参数的函数应该写成一对圆括号。() => { statements }
+   */
+  let sumArrow=nums.filter(n=>n<100).map(n=>n*2).reduce((p,n)=>p+n)
+  console.log(sumArrow)
+
+
+</script>
+</body>
+</html>

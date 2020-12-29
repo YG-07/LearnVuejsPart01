@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{fullName}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hi',
+      a:'aaa',
+      b:'bbb'
+    },
+    computed:{
+      //完整的计算属性格式
+      //一般没有set方法，就是只读属性
+      //只有get时，可以省略
+      fullName: {
+        // set: function () {
+        //
+        // },
+        get: function () {
+          return this.a+' '+this.b
+        }
+      }
+    },
+    methods: {
+
+    }
+  })
+
+</script>
+</body>
+</html>

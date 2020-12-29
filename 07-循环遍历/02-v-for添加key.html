@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <ul>
+    <li v-for="item in letters" :key="item">{{item}}</li>
+  </ul>
+  <button @click.once="inD">插入D</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hi',
+      //数组.splice(开始位置，修改\删除个数，添加的元素)
+      letters: ['A','B','C','E','F']
+    },
+    computed: {
+
+    },
+    methods: {
+      inD(){
+        this.letters.splice(3,0,'D')
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

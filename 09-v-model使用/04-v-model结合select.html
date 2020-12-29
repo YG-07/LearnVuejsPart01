@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--单选，一个变量绑定select-->
+  <select name="fruit" v-model="fruit">
+    <option value="无">无</option>
+    <option value="苹果">苹果</option>
+    <option value="香蕉">香蕉</option>
+    <option value="桃子">桃子</option>
+    <option value="葡萄">葡萄</option>
+    <option value="西瓜">西瓜</option>
+  </select>
+  <h2>你选择的水果是：{{fruit}}</h2>
+
+  <!--多选,按住ctrl多选，更好用复选框checkbox-->
+  <select name="fruits" v-model="fruits" multiple>
+    <option value="苹果">苹果</option>
+    <option value="香蕉">香蕉</option>
+    <option value="桃子">桃子</option>
+    <option value="葡萄">葡萄</option>
+    <option value="西瓜">西瓜</option>
+  </select>
+  <h2>你选择的水果有：{{fruits}}</h2>
+
+  <!--v-for的复选框，值绑定，v-bind动态绑定for、id、value-->
+  <!--for 属性规定 label 与哪个表单元素绑定。一一对应-->
+  <label v-for="item in originFruits" :for="item">
+    <input type="checkbox" :id="item" :value="item" v-model="fruits">{{item}}
+  </label>
+  <h2>你选择的水果有：{{fruits}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hi',
+      fruit:'无',
+      fruits:[],
+      originFruits:[ "苹果", "香蕉", "桃子", "葡萄", "西瓜" ]
+    },
+    computed: {
+
+    },
+    methods: {
+
+    }
+  })
+
+</script>
+</body>
+</html>

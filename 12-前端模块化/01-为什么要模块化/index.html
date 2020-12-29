@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<a href="https://www.bilibili.com/video/BV15741177Eh?p=73">B站-ES5模块化-视频</a>
+<p>常见的模块化规范：</p>
+<p>CommonJS、AMD、CMD，也有ES6的Modules</p>
+<!--
+项目：
+  1.组长
+  2.小明
+  3.小红
+-->
+<script src="aaa.js"></script>
+<!--ModuleB .....只用是模块名不同即可-->
+<script>
+  //1. 匿名函数  定义并实现模块化
+  console.log(ModuleA.name)
+  console.log(ModuleA.flag)
+
+  //2. ComminJS方法（了解）
+  // var {name,age,flag,sub} = require('./bbb.js')
+  // console.log(sub(50, 12));
+</script>
+</body>
+</html>

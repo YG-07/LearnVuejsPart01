@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--添加key值取消Vue对DOM的复用-->
+
+  <span v-if="ischange">
+      <form action="#" method="get">
+      <label for="user">用户名：</label>
+      <input type="text" id="user" placeholder="输入用户名" key="user">
+    <input type="submit" value="提交">
+      </form>
+    </span>
+  <span v-else>
+      <form action="#" method="get">
+      <label for="email">用户邮箱：</label>
+      <input type="text" id="email" placeholder="输入用户邮箱" key="email">
+    <input type="submit" value="提交">
+      </form>
+    </span>
+  <br>
+
+  <button @click="ischange=!ischange">切换方式</button>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hi',
+      ischange: true
+    },
+    computed: {},
+    methods: {}
+  })
+
+</script>
+</body>
+</html>

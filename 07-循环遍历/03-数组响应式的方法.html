@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <ul>
+    <li v-for="item in letters" :key="item">{{item}}</li>
+  </ul>
+  <!--Duplicate keys：重复key-->
+  <button @click="inD">插入数据</button>
+  <button @click="puD">push数据</button>
+  <button @click="poD">pop数据</button>
+  <button @click="vsetD">Vue修改数据</button>
+  <button @click="shD">shift数据</button>
+  <button @click="unshD">最前端添加数据</button>
+  <button @click="sortD">升序排序数据</button>
+  <button @click="reD">倒序数据</button>
+  <br><p>不是响应式的操作</p>
+  <button @click="syD">索引修改数据</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hi',
+      letters: ['A','B','C','D','E','F']
+    },
+    computed: {
+
+    },
+    methods: {
+      inD(){
+        //向/从数组中添加/删除一或多个项目，然后返回被删除的项目。
+        this.letters.splice(3,0,'DDD','EEE')
+      },
+      puD(){
+        this.letters.push('AAA')
+      },
+      //pop()删除数组最后的元素
+      poD(){
+        let pd=this.letters.pop();
+        console.log(pd)
+      },
+      //shift()删除数组最前的元素
+      shD(){
+        let sd=this.letters.shift()
+        console.log(sd)
+      },
+      //unshift()在数组最前面添加1个或多个元素
+      unshD(){
+        this.letters.unshift('aaa','bbb','ccc')
+      },
+      //sort()升序排序
+      sortD(){
+        this.letters.sort()
+      },
+      //reverse()倒序数组
+      reD(){
+        this.letters.reverse()
+      },
+      //Vue的set方法修改(vue的变量，替换下标，替换数据)Vue.set( target, key, value )
+      // target：要更改的数据源(可以是对象或者数组)
+      // key：要更改的具体数据
+      // value ：重新赋的值
+      vsetD(){
+        Vue.set(this.letters,0,'vvvvv')
+      },
+
+      //！！注意：通过索引修改的元素，修改了但不是响应式的
+      syD(){
+        this.letters[0]='XXX'
+        console.log(this.letters)
+      }
+
+    }
+  })
+
+</script>
+</body>
+</html>

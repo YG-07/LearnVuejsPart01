@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div{
+      padding: 20px;
+      border: 1px black solid;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h1>Vue实例 app</h1>
+  <cpn></cpn>
+</div>
+<template id="cpn">
+  <div>
+    <h1>父组件</h1>
+    <ccpn></ccpn>
+  </div>
+</template>
+
+<template id="ccpn">
+  <div>
+    <h2>这是子组件</h2>
+    <button @click="cbtnCk">子组件按钮</button>
+  </div>
+</template>
+
+<script src="../../day02/js/vue.js"></script>
+<script>
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hello',
+      name:'这是Vue实例名字'
+    },
+    methods: {
+      btnClick(){
+
+      }
+    },
+    components:{
+      cpn:{
+        template: '#cpn',
+        data(){
+          return{
+            name:'这是cpn组件的名字'
+          }
+
+        },
+        components: {
+          ccpn:{
+            template: '#ccpn',
+            methods:{
+              cbtnCk(){
+                //1. $parent,访问父组件。缺点：耦合度太高，复用性不足
+                console.log(this.$parent)
+                console.log(this.$parent.name)
+                //2. $root，访问根节点Vue。Vue实例的数据很少
+                console.log(this.$root.name)
+              }
+            }
+
+          }
+        }
+
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

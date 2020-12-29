@@ -51,8 +51,24 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
  * v-cloak：加载时不显示标签的内容
   
 ### 三、v-bind指令
-#### 1.1 v-bind绑定属性
+#### 3.1 v-bind绑定属性
 * v-bind:href
 * v-bind:src
 * 语法糖写法 :[属性名]
+  
+#### 3.2 v-bind动态绑定class
+* 对象语法-:class='{类名1:布尔值1, 类名2:布尔值2, ...}'
+* 数组语法-:class='[变量1, 变量2, ...]'
+  
+#### 3.3 v-bind动态绑定style
+(用双引号避免如'px'这种字符串)
+* 对象语法-:style="{color: 'green'}"
+* 数组语法:style="[对象变量1, 对象变量2, ...]" 
+  
+### 四、计算属性  
+#### 4.1计算属性computed
+* 基本使用案例：拼接名字-this.firstName+' '+this.lastName;
+* 复杂使用案例：拼接价格和符号-this.books[i].price
+
+
 

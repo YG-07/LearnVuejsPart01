@@ -18,3 +18,9 @@ vue的安装方式：1.直接下载Vue.js，2.CDN引入，3.npm安装Vue模块
 Vue 官网：https://cn.vuejs.org/  
 
 ### 四、本节知识大纲  
+#
+### 一.邂逅Vuejs  
+#### 1.1 认识Vuejs
+* 什么是Vuejs
+* Vue的渐进式
+* Vue的特点

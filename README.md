@@ -91,7 +91,7 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
 * 对象的赋值.先定义并赋值变量,然后赋值对象-{变量1, 变量2, ...}
 * 对象里的函数-{变量:func(){...}}
   
-### 六、事件监听 (30-)
+### 六、事件监听 (30-32)
 #### 6.1 事件监听的基本使用
 #### 6.2 事件方法的参数问题(定义-调用)
 * btnClick() - btnClick
@@ -102,7 +102,75 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
 * .stop 阻止冒泡(如:避免多层元素，由内到外的冒泡)
 * .prevent修饰符 拦截默认事件(如:跳转页面时的警告)
 * .once 某个元素只能操作一次(如:点赞)
-* 啊
+* 了解2个
+  * .{keyCode | keyAlias} 只当事件是从特定键触发时回调(如:松开回车键:@keyup.enter=方法)
+  * .native 监听组件根元素的原生事件
 
+### 七、条件判断 (33-36)
+#### 7.1 v-if / v-else-if / v-else 的使用
+#### 7.2 案例1:成绩等级 2种方式
+#### 7.3 案例2:用户登录方式
+#### 7.4 v-if和v-show的区别
+* 不显示时，show的元素添加display:none，if的元素不存在DOM里
+* 当需要在显示与隐藏之间切片很频繁时，使用v-show
 
+### 八、循环遍历 (37-45)
+#### 8.1 v-for遍历
+* (item) 直接使用值
+* (item,index) 分别是值和下标，下标可省略
+* (value,key,index)值、键和下标，key、index可省略
 
+#### 8.2 v-for添加v-bind:key属性
+* 添加key值，不同相同
+* 数组.splice(开始位置，修改\删除个数，添加的元素)
+
+#### 8.3 数组哪些操作是响应式的
+* 响应式的
+  * .splice 修改函数
+  * .push 添加到最后一个元素
+  * .unshift 添加到最前一个元素
+  * .pop 删除最后一个元素
+  * .shift 删除最前一个元素
+  * .sort 升序排序
+  * .reverse 倒序
+* 不是响应式的
+  * 通过索引赋值修改元素(除非是对象里的数组)
+   
+#### 8.4 案例：书籍购物车界面
+作业项目 URL：https://github.com/YG-07/VuejsProgram.git  
+知识点：  
+* 1.可以增加和减少购买数量，v-bind:click
+* 2.可以移除书籍，全部移除显示提示，v-if和v-else
+* 3.购买数量至少为1，减少按钮不可用，v-bind:disabled="book.count<=1"
+* 4.总价格使用计算属性，computed
+* 5.(了解)filters过滤器
+  * 与运算调用{{book.price | showPrice}}
+  * 类似函数定义；.toFixed(保留小数位数)
+  
+#### 8.5 高阶函数
+* .filter 过滤器函数
+* .map 映射函数
+* .reduce(function (preValue, n){...}) 汇总函数
+
+### 九、v-model的原理和使用 (46-51)
+#### 9.1 v-model的原理
+原理：相当于先v-bind绑定value，v-on:input监听点击并输入事件
+* :value="message" v-on:input="事件方法"
+* event.target.value获取输入框的值
+  
+#### 9.2 radio类型(单选框)
+* 多个v-model绑定同一个变量时，标签可以不用name值
+  
+#### 9.3 checkbox类型(复选框)
+* 一个input标签时，绑定一个布尔值(如:勾选协议)
+* 对多个标签时，绑定一个数组
+
+#### 9.4 select类型（下拉菜单）
+* v-model绑定select标签，多选时添加multiple属性(按住Ctrl多选)
+* 多选的更好方案是v-for生成checkbox标签，并添加多个v-model和:value
+
+#### 9.5 v-model的修饰符
+* .lazy修饰符，失去焦点或回车时 才实时绑定值
+* .number修饰符,转换Number类型 (v-model绑定时自动的string类型)
+* .trim修饰符，它去除变量首尾多余空格 (浏览器加载时自动去除超过2个的多余空格，但变量的值仍有空格)
+  

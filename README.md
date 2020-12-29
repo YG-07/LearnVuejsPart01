@@ -27,5 +27,27 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
 * 2.CDN引入
 * 3.npm安装Vue模块 
 #### 1.3 Vue的初使用  
-* Hello Vuejs
-  * mustache语法
+* Hello Vuejs  
+  * Vue实例的el，data属性
+  * mustache语法，体验响应式  
+* Vue的列表展示  
+  * v-for  
+  * 通过Vue实例的数组修改元素
+* Vue的计数器小案例
+  * v-on:click或@click
+  * Vue实例的methods属性
+  
+#### 1.4 了解Vue的MVVM
+  
+#### 1.5 了解Vue的options
+* 除以上属性，生命周期函数
+    
+ ### 二、插值语法  
+ * mustache语法
+ * v-once：固定显示第一次的值
+ * v-html：解析html标签的字符串
+ * v-text：类似mustache语法
+ * v-pre：取消mustache语法解析
+ * v-cloak：加载时不显示标签的内容
+  
+  

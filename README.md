@@ -15,7 +15,8 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
   
 ### 三、本节知识大纲  
 #
-### 一.邂逅Vuejs  
+(数字表示视频URL分p)
+### 一.邂逅Vuejs (1-12)  
 #### 1.1 认识Vuejs
 * 什么是Vuejs
 * Vue的渐进式
@@ -42,7 +43,7 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
 #### 1.5 了解Vue的options
 * 除以上属性，生命周期函数
     
- ### 二、插值语法  
+ ### 二、插值语法 (13-14)  
  * mustache语法
  * v-once：固定显示第一次的值
  * v-html：解析html标签的字符串
@@ -50,7 +51,7 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
  * v-pre：取消mustache语法解析
  * v-cloak：加载时不显示标签的内容
   
-### 三、v-bind指令
+### 三、v-bind指令 (15-20)  
 #### 3.1 v-bind绑定属性
 * v-bind:href
 * v-bind:src
@@ -65,10 +66,29 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
 * 对象语法-:style="{color: 'green'}"
 * 数组语法:style="[对象变量1, 对象变量2, ...]" 
   
-### 四、计算属性  
-#### 4.1计算属性computed
+### 四、计算属性 (21-25)  
+#### 4.1 计算属性computed
 * 基本使用案例：拼接名字-this.firstName+' '+this.lastName;
 * 复杂使用案例：拼接价格和符号-this.books[i].price
+  
+#### 4.2 计算属性本质
+* fullname:{set(), get()}
+
+#### 4.3 计算属性和方法区别
+* 计算属性和方法的执行结果一样
+* 计算属性使用时有缓存，只有值发生改变才会重新调用；而方法每次使用都会重新执行
+  
+### 五、ES6的补充（了解） (26-29)  
+#### 5.1 let和var的作用域
+#### 5.2 三种作用域方案
+* ES5没有闭包(错误操作)
+* ES5有闭包
+* ES6的let
+
+#### 5.3 ES6的基本语法
+  
+### 六、事件监听 (30-)
+
 
 
 

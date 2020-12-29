@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <h2>当前计数：{{counter}}</h2>
+  <!-- v-on -->
+  <!--<button v-on:click="counter++">+</button>-->
+  <!--<button v-on:click="counter&#45;&#45;">-</button>-->
+  <!--语法糖-->
+  <button @click="Add">+</button>
+  <!--<button v-on:click="Add">+</button>-->
+  <button v-on:click="Sub">-</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      counter: 0
+    },
+    methods: {
+      Add: function () {
+        console.log('Add被执行')
+        //对象里的变量用this.访问
+        this.counter++
+      },
+      Sub: function () {
+        console.log('Sub被执行')
+        this.counter--
+      }
+    }
+
+  })
+
+</script>
+</body>
+</html>

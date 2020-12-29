@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h2>{{message}}</h2>
+    <h1>{{name}}</h1>
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:'#app',  //挂载要管理的元素
+        data:{  //定义数据 options:{},{}包括属性(可以自定义或网络的)和值
+            message:'你好，Vue!',
+            name:'Vue'
+        }
+    })
+    //修改，更新 响应式
+    app.message='天气不错！'
+</script>
+</body>
+</html>

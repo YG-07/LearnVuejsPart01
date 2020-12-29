@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!--
+  setting -> live templates -> Vue -> + ->live template
+  添加模板代码，选择应用的文件格式
+-->
+<div id="app">
+  {{message}}
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hi'
+    },
+    methods: {
+
+    }
+  })
+
+</script>
+</body>
+</html>

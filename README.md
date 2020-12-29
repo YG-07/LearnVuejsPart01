@@ -50,4 +50,9 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
  * v-pre：取消mustache语法解析
  * v-cloak：加载时不显示标签的内容
   
-  
+### 三、v-bind指令
+#### 1.1 v-bind绑定属性
+* v-bind:href
+* v-bind:src
+* 语法糖写法 :[属性名]
+

@@ -1,10 +1,10 @@
 # LearnVuejsPart01
-学习Vuejs的第一部分
-
+学习Vuejs的第一部分  
+  
 ### 一.资料整理来源  
 coderwhy老师  B站账号：ilovecoding  
 bilibili URL：https://space.bilibili.com/36139192  
-视频(1-75p) URL：https://www.bilibili.com/video/BV15741177Eh?p=1
+视频(1-51p) URL：https://www.bilibili.com/video/BV15741177Eh?p=1
   
 ### 二、前端基础知识  
 web前端三大主流框架都是Angular、React、Vue  
@@ -15,15 +15,15 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
   
 ### 三、本节知识大纲  
 #
-(数字表示视频URL分p)
+(数字表示视频URL分p)  
 ### 一.邂逅Vuejs (1-12)  
 #### 1.1 认识Vuejs
 * 什么是Vuejs
 * Vue的渐进式
 * Vue的特点
-
+  
 #### 1.2 安装Vue  
-安装方式：
+安装方式：  
 * 1.直接下载Vue.js Vue 官网：https://cn.vuejs.org/  
 * 2.CDN引入
 * 3.npm安装Vue模块 
@@ -42,7 +42,7 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
   
 #### 1.5 了解Vue的options
 * 除以上属性，生命周期函数
-    
+  
  ### 二、插值语法 (13-14)  
  * mustache语法
  * v-once：固定显示第一次的值
@@ -55,7 +55,7 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
 #### 3.1 v-bind绑定属性
 * v-bind:href
 * v-bind:src
-* 语法糖写法 :[属性名]
+* 语法糖写法 :(属性名)
   
 #### 3.2 v-bind动态绑定class
 * 对象语法-:class='{类名1:布尔值1, 类名2:布尔值2, ...}'
@@ -84,7 +84,7 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
 * ES5没有闭包(错误操作)
 * ES5有闭包
 * ES6的let
-
+  
 #### 5.3 ES6的基本语法
 * const用法
 * 对象的字面量-{}
@@ -95,9 +95,9 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
 #### 6.1 事件监听的基本使用
 #### 6.2 事件方法的参数问题(定义-调用)
 * btnClick() - btnClick
-* btnClick(event) - btnClic 
+* btnClick(event) - btnClic 省略时默认传入当前事件 
 * btnClick(a,event) - btnClick(a,$event)
-  
+    
 #### 6.3 v-on的修饰符
 * .stop 阻止冒泡(如:避免多层元素，由内到外的冒泡)
 * .prevent修饰符 拦截默认事件(如:跳转页面时的警告)
@@ -105,7 +105,7 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
 * 了解2个
   * .{keyCode | keyAlias} 只当事件是从特定键触发时回调(如:松开回车键:@keyup.enter=方法)
   * .native 监听组件根元素的原生事件
-
+  
 ### 七、条件判断 (33-36)
 #### 7.1 v-if / v-else-if / v-else 的使用
 #### 7.2 案例1:成绩等级 2种方式
@@ -113,17 +113,17 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
 #### 7.4 v-if和v-show的区别
 * 不显示时，show的元素添加display:none，if的元素不存在DOM里
 * 当需要在显示与隐藏之间切片很频繁时，使用v-show
-
+  
 ### 八、循环遍历 (37-45)
 #### 8.1 v-for遍历
 * (item) 直接使用值
 * (item,index) 分别是值和下标，下标可省略
 * (value,key,index)值、键和下标，key、index可省略
-
+  
 #### 8.2 v-for添加v-bind:key属性
 * 添加key值，不同相同
 * 数组.splice(开始位置，修改\删除个数，添加的元素)
-
+  
 #### 8.3 数组哪些操作是响应式的
 * 响应式的
   * .splice 修改函数
@@ -135,9 +135,10 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
   * .reverse 倒序
 * 不是响应式的
   * 通过索引赋值修改元素(除非是对象里的数组)
-   
+  
 #### 8.4 案例：书籍购物车界面
-作业项目 URL：https://github.com/YG-07/VuejsProgram.git  
+作业项目Git URL：https://github.com/YG-07/VuejsProgram.git  
+视频 URL：https://www.bilibili.com/video/BV15741177Eh?p=41  
 知识点：  
 * 1.可以增加和减少购买数量，v-bind:click
 * 2.可以移除书籍，全部移除显示提示，v-if和v-else
@@ -151,7 +152,7 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
 * .filter 过滤器函数
 * .map 映射函数
 * .reduce(function (preValue, n){...}) 汇总函数
-
+  
 ### 九、v-model的原理和使用 (46-51)
 #### 9.1 v-model的原理
 原理：相当于先v-bind绑定value，v-on:input监听点击并输入事件
@@ -164,13 +165,14 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
 #### 9.3 checkbox类型(复选框)
 * 一个input标签时，绑定一个布尔值(如:勾选协议)
 * 对多个标签时，绑定一个数组
-
+  
 #### 9.4 select类型（下拉菜单）
 * v-model绑定select标签，多选时添加multiple属性(按住Ctrl多选)
 * 多选的更好方案是v-for生成checkbox标签，并添加多个v-model和:value
-
+  
 #### 9.5 v-model的修饰符
 * .lazy修饰符，失去焦点或回车时 才实时绑定值
 * .number修饰符,转换Number类型 (v-model绑定时自动的string类型)
 * .trim修饰符，它去除变量首尾多余空格 (浏览器加载时自动去除超过2个的多余空格，但变量的值仍有空格)
   
+-----------------以上就是本项目文件夹全部知识-----------------  

@@ -126,13 +126,14 @@ MVVM(Model-view-viewmodel)是一种软件架构模式。
   
 #### 8.3 数组哪些操作是响应式的
 * 响应式的
-  * .splice 修改函数
   * .push 添加到最后一个元素
-  * .unshift 添加到最前一个元素
+  * .unshift 添加到最前一个或多个元素
   * .pop 删除最后一个元素
-  * .shift 删除最前一个元素
+  * .shift 删除最前一个元素并返回
   * .sort 升序排序
   * .reverse 倒序
+  * **.splice(index, howmany, item1)**修改删除函数,1是添加/删除位置,负数是倒数位置，2是删除数量,为0是插入,3可选插入数据
+  * **Vue.set(target, key, value)**Vue的set响应式函数，1是修改的数据，2是索引或键，3是修改后的值
 * 不是响应式的
   * 通过索引赋值修改元素(除非是对象里的数组)
   
